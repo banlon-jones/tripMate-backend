@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import express from "express";
-import taskRouter from "./src/routes/taskRoutes.js";
 import cors from "cors";
+import userRouter from "./src/routes/routes";
 
 dotenv.config({ path: '.env' });
 
@@ -29,7 +29,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use("/api/todos", taskRouter);
+app.use("/api/user", userRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
